@@ -6,10 +6,28 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private int RC_SIGN_IN = 0;
     private GoogleSignInClient mGoogleSignInClient;
@@ -101,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             String personFamilyName = account.getFamilyName();
             String personEmail = account.getEmail();
             String personId = account.getId();
-            Uri personPhoto = account.getPhotoUrl();
+//            Uri personPhoto = account.getPhotoUrl();
             Date date = new Date();
 
             ApiGmail.apiService.addGmail(new Gmail(personName, personEmail, date+"")).enqueue(new Callback<Gmail>() {

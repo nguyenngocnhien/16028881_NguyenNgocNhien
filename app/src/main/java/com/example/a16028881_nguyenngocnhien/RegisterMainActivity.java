@@ -39,7 +39,7 @@ public class RegisterMainActivity extends AppCompatActivity {
                 ApiGmail.apiService.addUser(new User(email, pass, phone, name)).enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
-                        Toast.makeText(RegisterMainActivity.this, "Them tai khoan thanh cong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterMainActivity.this, "Ban da them thanh cong", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterMainActivity.this, MainActivity.class));
                     }
 
